@@ -1,4 +1,3 @@
-
 $(document).ready(() => {
 
 	let quiz = {
@@ -8,6 +7,9 @@ $(document).ready(() => {
 			$.getJSON(url, function (data) {
 				console.log("Retrieved quiz");
 				console.log(data);
+				let Question = data.results[0].question;
+				console.log(Question);
+				$('#Question').text(Question);
 				let answer = data.results[0].correct_answer;
 				console.log(answer);
 				$('#choice1').text(answer)
@@ -26,5 +28,3 @@ $(document).ready(() => {
 
 		quiz.getQuiz()
 	})
-
-
