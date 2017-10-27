@@ -1,7 +1,17 @@
 body {
-	background-color: lightblue;
+	background-image: url("back.gif");
+	text-align: center;
+	background-position: 20% 0%;
+
 }
 
 h1 {
 	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+}
+
+div.questions {
+	font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+	font-style: italic;
+
 }
