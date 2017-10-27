@@ -24,14 +24,39 @@ $(document).ready(() => {
 
 	}
 
+	let score = 0;
+	$('#nextQuestion').hide();
+	$("#score").text('Your score: ' + score + '/10');
+
+
 	$('#confirmAnswer').on('click', () => {
 		let selectedAnswer = $('input:checked').next().text();
 		console.log("selectedanswer : " + selectedAnswer);
-		if (selectedAnswer === questions.correct_answer) {
-
+		if (selectedAnswer === questions[0].correct_answer) {
+			score++;
+			$("#score").text(`Correct! ${score} /10`);
+			$("#confirmAnswer").hide();
+			$("#nextQuestion").show();
 		} else {
-
+			$("#score").text(`Incorrect, try again! ${score} /10` );
+			$("#confirmAnswer").hide();
+			$("#nextQuestion").show();
 		}
 	})
+
+	let getQuestion = function(question) {
+		console.log(question);
+		$("#Question").text(question.question)
+	}
+
+	
+
+	let currentQuestion = 0;
+	$("#nextQuestion").on('click', () => {
+
+
+
+	})
+
 	quiz.getQuiz()
 })

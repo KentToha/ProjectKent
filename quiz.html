@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href="css/quiz.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="quiz.js"></script>
 	<title>QuizWire</title>
 </head>
 <body>
+
 	<h1>QuizWire: Sports Quiz</h1>
 	<!-- Question -->
 	<p><span id="Question"></span></p>
 	<!--  multiple choice -->
-
-
+<div>
 	<form class="questions">
-		<input type="radio" name="Answer" value="ans1"> <span id="choice1"> </span> </input><br>
-		<input type="radio" name="Answer" value="ans2"> <span id="choice2"> </span> </input><br>
-		<input type="radio" name="Answer" value="ans3"> <span id="choice3"> </span> </input><br>
-		<input type="radio" name="Answer" value="ans4"> <span id="choice4"> </span> </input><br>
+		<input type="radio" name="Answer" value="ans1"> <span id="choice1"> </span><br>
+		<input type="radio" name="Answer" value="ans2"> <span id="choice2"> </span><br>
+		<input type="radio" name="Answer" value="ans3"> <span id="choice3"> </span><br>
+		<input type="radio" name="Answer" value="ans4"> <span id="choice4"> </span><br>
 	</form>
+</div>
     <!-- show answer -->
 	<button id="confirmAnswer">Confirm Answer</button>
-	<p><span id="score"></span></p>
+	<br>
+	<button id="nextQuestion">Next Question</button>
+	<p id="feedback"></span></p>
+	<p> <span id="score"> </span></p>
+	
+
 
 
 
