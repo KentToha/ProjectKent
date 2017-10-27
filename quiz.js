@@ -10,25 +10,20 @@ $(document).ready(() => {
 				questions = data.results
 				let Question = data.results[0].question;
 				console.log(Question);
-				$('#Question').text(Question);
+				$('#Question').html(Question);
 				let answer = data.results[0].correct_answer;
 				console.log(answer);
 				$('#choice1').text(answer)
 				let incorrect_answers = data.results[0].incorrect_answers;
-				$('#choice2').text(incorrect_answers[0])
-				$('#choice3').text(incorrect_answers[1])
-				$('#choice4').text(incorrect_answers[2])
-
+				$('#choice2').html(incorrect_answers[0])
+				$('#choice3').html(incorrect_answers[1])
+				$('#choice4').html(incorrect_answers[2])
 			})
 		}
-
 	}
-
 	let score = 0;
 	$('#nextQuestion').hide();
 	$("#score").text('Your score: ' + score + '/10');
-
-
 	$('#confirmAnswer').on('click', () => {
 		let selectedAnswer = $('input:checked').next().text();
 		console.log("selectedanswer : " + selectedAnswer);
@@ -38,25 +33,35 @@ $(document).ready(() => {
 			$("#confirmAnswer").hide();
 			$("#nextQuestion").show();
 		} else {
-			$("#score").text(`Incorrect, try again! ${score} /10` );
+			$("#score").text(`Incorrect ${score} /10` );
 			$("#confirmAnswer").hide();
 			$("#nextQuestion").show();
 		}
 	})
-
-	let getQuestion = function(question) {
-		console.log(question);
-		$("#Question").text(question.question)
-	}
-
-	
-
 	let currentQuestion = 0;
+	$("#retry").hide();
 	$("#nextQuestion").on('click', () => {
-
-
-
+		currentQuestion++;
+		$("#newQuestion").text('Questions Answered: ' + currentQuestion + '/10');
+		console.log(currentQuestion);
+		quiz.getQuiz();
+		$("#nextQuestion").hide();
+		$("#confirmAnswer").show();
+		if (currentQuestion >= 10) {
+			$("#score").text(`You have completed the quiz. Your score is: ${score} / 10. Well done!`);
+			$("#questions").hide();
+			$("#Question").hide();
+			$("#confirmAnswer").hide();
+			$("#newQuestion").hide();
+			$("#retry").show();
+		} else {
+		}
 	})
+	$("#retry").on('click', () => {
+		quiz.getQuiz()
+	})
+
+
 
 	quiz.getQuiz()
 })
