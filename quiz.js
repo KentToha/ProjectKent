@@ -11,13 +11,15 @@ $(document).ready(() => {
 				let Question = data.results[0].question;
 				console.log(Question);
 				$('#Question').html(Question);
-				let answer = data.results[0].correct_answer;
-				console.log(answer);
-				$('#choice1').text(answer)
-				let incorrect_answers = data.results[0].incorrect_answers;
-				$('#choice2').html(incorrect_answers[0])
-				$('#choice3').html(incorrect_answers[1])
-				$('#choice4').html(incorrect_answers[2])
+				let answer = Math.floor(Math.random() * 4);
+				console.log("Picked to be correct: " + answer);
+				for (i = 0; i < 4; i++) {
+					if (answer == i) {
+						$("#choice" + i).html(data.results[0].correct_answer);
+					} else {
+						$("#choice" + i).html(data.results[0].incorrect_answers.pop());
+					}
+				}	
 				$("#newQuestion").text('Questions Answered: ' + currentQuestion + '/10');
 				$("#score").text('Your score: ' + score + '/10');
 			})

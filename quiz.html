@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="css/quiz.css">
+	<link rel="stylesheet" type="text/css" href="quiz.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="quiz.js"></script>
 	<title>QuizWire</title>
@@ -14,13 +14,14 @@
 	<!--  multiple choice -->
 <div id="questions">
 	<form>
+		<input type="radio" name="Answer" value="ans1"> <span id="choice0"> </span><br>
 		<input type="radio" name="Answer" value="ans1"> <span id="choice1"> </span><br>
 		<input type="radio" name="Answer" value="ans2"> <span id="choice2"> </span><br>
 		<input type="radio" name="Answer" value="ans3"> <span id="choice3"> </span><br>
-		<input type="radio" name="Answer" value="ans4"> <span id="choice4"> </span><br>
 	</form>
 </div>
     <!-- show answer -->
+<div id="buttons">
 	<button id="confirmAnswer">Confirm Answer</button>
 	<br>
 	<button id="nextQuestion">Next Question</button>
@@ -29,15 +30,6 @@
 	<p> <span id="newQuestion"> </span></p>
 	<p id="feedback"></span></p>
 	<p> <span id="score"> </span></p>
-
-	
-
-
-
-
-
-	
-
-
+</div>
 </body>
 </html>
