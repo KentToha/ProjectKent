@@ -18,12 +18,13 @@ $(document).ready(() => {
 				$('#choice2').html(incorrect_answers[0])
 				$('#choice3').html(incorrect_answers[1])
 				$('#choice4').html(incorrect_answers[2])
+				$("#newQuestion").text('Questions Answered: ' + currentQuestion + '/10');
+				$("#score").text('Your score: ' + score + '/10');
 			})
 		}
 	}
 	let score = 0;
 	$('#nextQuestion').hide();
-	$("#score").text('Your score: ' + score + '/10');
 	$('#confirmAnswer').on('click', () => {
 		let selectedAnswer = $('input:checked').next().text();
 		console.log("selectedanswer : " + selectedAnswer);
@@ -42,7 +43,6 @@ $(document).ready(() => {
 	$("#retry").hide();
 	$("#nextQuestion").on('click', () => {
 		currentQuestion++;
-		$("#newQuestion").text('Questions Answered: ' + currentQuestion + '/10');
 		console.log(currentQuestion);
 		quiz.getQuiz();
 		$("#nextQuestion").hide();
@@ -55,13 +55,19 @@ $(document).ready(() => {
 			$("#newQuestion").hide();
 			$("#retry").show();
 		} else {
+
 		}
 	})
 	$("#retry").on('click', () => {
+		$("#questions").show();
+		$("#newQuestion").show();
+		$("#Question").show();
+		(currentQuestion) = 0;
+		(score) = 0;
+		$("#retry").hide();
+		$("#confirmAnswer").show();
 		quiz.getQuiz()
 	})
-
-
 
 	quiz.getQuiz()
 })
